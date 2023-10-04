@@ -20,6 +20,7 @@ public class MemberController {
 
     private final MemberService memberService;
 
+    // 회원가입
     @PostMapping("/join")
     public ResponseEntity<MemberFormDTO> joinMember(@Valid @RequestBody MemberFormDTO memberFormDTO) {
         log.info("MemberController, 메소드: joinMember, 파라미터: MemberFormDTO -> {}", memberFormDTO);
