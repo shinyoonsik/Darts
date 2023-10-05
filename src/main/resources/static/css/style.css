@@ -1,0 +1,8 @@
+table {
+    width: 100%;
+    border-collapse: collapse; /* 테두리를 겹치게 합니다. */
+}
+
+table, th, td {
+    border: 1px solid black;
+}

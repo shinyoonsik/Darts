@@ -17,7 +17,7 @@ Darts application
 ./gradlew clean build
 ``
 
-# 1주차
+# 1강
     - 수동으로 build하고 실행해보기
   - gradle wrapper를 사용하여 build  
     ``

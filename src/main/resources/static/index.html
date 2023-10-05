@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>게시글 page</h1>
+<div id="list"></div>
+<button id="btn">조회하기</button>
+<script>
+    async function getlist() {
+        let response = await fetch("http://localhost:8080/post/list");
+        let data = await response.json();
+        let tableRows = data.map(post => `
+              <tr>
+                <td>${post.id}</td>
+                <td>${post.title}</td>
+                <td>${post.content}</td>
+                <td>${post.author}</td>
+                <td>${post.createdDate}</td>
+              </tr>
+            `).join('');
+
+        let tableHTML = `
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Content</th>
+                    <th>Author</th>
+                    <th>Created Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${tableRows}
+                </tbody>
+              </table>
+            `;
+        document.getElementById("list").innerHTML = tableHTML
+    }
+
+    document.getElementById("btn").addEventListener("click", getlist);
+</script>
+</body>
+</html>
