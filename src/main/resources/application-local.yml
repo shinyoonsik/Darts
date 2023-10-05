@@ -11,7 +11,6 @@ spring:
       ddl-auto: create-drop # 시작될때 drop하고 create == 종료시 drop하고 create
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    show-sql: true
     properties:
       dialect: org.hibernate.dialect.MySQL8InnoDBDialect
 
