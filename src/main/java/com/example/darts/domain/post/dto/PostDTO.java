@@ -1,5 +1,6 @@
 package com.example.darts.domain.post.dto;
 
+import com.example.darts.domain.post.entity.PostEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -13,4 +14,11 @@ public class PostDTO {
     private String contents;
     private String author;
     private LocalDateTime createdDate;
+
+    public PostDTO(PostEntity postEntity){
+        this.id = postEntity.getId();
+        this.title = postEntity.getTitle();
+        this.author = postEntity.getAuthor();
+        this.contents = postEntity.getContents();
+    }
 }
