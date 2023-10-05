@@ -10,7 +10,7 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class DataInitializer implements CommandLineRunner {
+public class PostEntityInitializer implements CommandLineRunner {
 
     private final PostRepository postRepository;
 

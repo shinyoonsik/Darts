@@ -5,7 +5,6 @@ import com.example.darts.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -13,15 +12,22 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PostController {
 
+    // postService를 통해 service layer에 접근한다.
+    // 즉 controller입장에서는 데이터 엑세스 기술이 JPA든 MyBatis든 상관없다 == 레이어드 아키텍처의 장점
     private final PostService postService;
 
     @GetMapping("/list")
-    public List<PostDTO> showPostList(){
-        return postService.getPostList();
+    public List<PostDTO> showPostList() {
+        return postService.getPostListByJPA();
+    }
+
+    @GetMapping("/list/mybatis")
+    public List<PostDTO> showPostListByMybatis() {
+        return postService.getPostListByMybatis();
     }
 
     @GetMapping("/{postId}")
-    public String getPost(@PathVariable String postId){
+    public String getPost(@PathVariable String postId) {
         return postId + " 블로그 상세 내용입니다";
     }
 

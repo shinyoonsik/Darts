@@ -16,13 +16,13 @@ public class PostEntity {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "TITLE", nullable = false)
+    @Column(name = "TITLE")
     private String title;
 
-    @Column(name = "CONTENTS", nullable = true)
+    @Column(name = "CONTENTS")
     private String contents;
 
-    @Column(name = "AUTHOR", nullable = false)
+    @Column(name = "AUTHOR")
     private String author;
 
 
