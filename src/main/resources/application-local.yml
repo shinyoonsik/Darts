@@ -3,16 +3,17 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/security?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: root
-    password: ENC(BXPF7zHIUyTn5pxtNpEeRA==)
+    password: ENC(Lp1O1dqmfD4VUKbfrsGesQ==)
 
   jpa:
-    open-in-view: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
-      ddl-auto: create-drop # 시작될때 drop하고 create == 종료시 drop하고 create
-      naming:
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: create-drop
     properties:
-      dialect: org.hibernate.dialect.MySQL8InnoDBDialect
+      hibernate.default_batch_fetch_size: 1000
+      hibernate:
+        format_sql: true
 
 mybatis:
   mapper-locations: classpath:mybatis/mapper/mysql/**/**.xml    # classpath는 ./resources를 의미함

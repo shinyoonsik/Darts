@@ -1,14 +1,29 @@
-#spring:
-#  datasource:
-#    url: jdbc:postgresql://192.168.1.253/postgres
-#    driver-class-name: org.postgresql.Driver
-#    username: postgres
-#    password:
-#  jpa:
-#    database-platform: org.hibernate.dialect.PostgreSQLDialect
-#    properties:
-#      hibernate:
-#        format_sql: true
-#        show_sql: true
-#    hibernate:
-#      ddl-auto: create-drop
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql-container:3306/security?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: ENC(Lp1O1dqmfD4VUKbfrsGesQ==)
+
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate.default_batch_fetch_size: 1000
+      hibernate:
+        format_sql: true
+
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/mysql/**/**.xml    # classpath는 ./resources를 의미함
+  #  type-handlers-package: com.example.darts.mapper.typehandler
+  type-aliases-package: com.example.darts.domain.post.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    default-statement-timeout: 30 # 쿼리를 날렸을 때, 30초이상 걸리면 끊어라
+    default-fetch-size: 100 # 한 번에 최대로 들고 올 수 있는 사이즈
+
+logging:
+  level:
+    org.hibernate.SQL: debug

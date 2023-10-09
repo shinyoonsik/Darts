@@ -2,13 +2,12 @@ package com.example.darts.service;
 
 import com.example.darts.domain.member.dto.MemberFormDTO;
 import com.example.darts.domain.member.entity.MemberEntity;
+import com.example.darts.initializer.ConfigurationChecker;
 import com.example.darts.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
