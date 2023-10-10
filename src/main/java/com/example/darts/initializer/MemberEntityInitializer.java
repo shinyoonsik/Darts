@@ -21,6 +21,7 @@ public class MemberEntityInitializer implements CommandLineRunner {
                 .password(passwordEncoder.encode("1234"))
                 .build();
 
+        // TODO 혼자 개발하는게 아니기 때문에 postRepository를 통해 값이 있는지 체크하고 없을때 넣도록 수정
         memberRepository.save(tempMember);
     }
 }

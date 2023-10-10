@@ -22,6 +22,7 @@ public class PostEntityInitializer implements CommandLineRunner {
                 PostEntity.builder().title("title3").contents("contents3").author("yoonsik").build()
         );
 
+        // TODO 혼자 개발하는게 아니기 때문에 postRepository를 통해 값이 있는지 체크하고 없을때 넣도록 수정
         postRepository.saveAll(postList);
     }
 }

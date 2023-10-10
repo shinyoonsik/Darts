@@ -16,12 +16,12 @@ public class PostController {
     // 즉 controller입장에서는 데이터 엑세스 기술이 JPA든 MyBatis든 상관없다 == 레이어드 아키텍처의 장점
     private final PostService postService;
 
-    @GetMapping("/list")
+    @GetMapping("/jpa/list")
     public List<PostDTO> showPostList() {
         return postService.getPostListByJPA();
     }
 
-    @GetMapping("/list/mybatis")
+    @GetMapping("/mybatis/list")
     public List<PostDTO> showPostListByMybatis() {
         return postService.getPostListByMybatis();
     }
