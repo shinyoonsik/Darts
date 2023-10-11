@@ -9,9 +9,14 @@ spring:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: create
     properties:
       hibernate.default_batch_fetch_size: 1000
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+      platform: mysql
 
 mybatis:
   mapper-locations: classpath:mybatis/mapper/mysql/**/**.xml    # classpath는 ./resources를 의미함
