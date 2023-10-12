@@ -75,6 +75,14 @@ public class MemberEntity implements UserDetails {
         return true;
     }
 
+    public MemberEntity(MemberFormDTO memberFormDTO){
+        name = memberFormDTO.getName();
+        email = memberFormDTO.getEmail();
+        password = memberFormDTO.getPassword();
+        address = memberFormDTO.getAddress();
+        phoneNumber = memberFormDTO.getPhoneNumber();
+    }
+
     //    public static MemberEntity from(MemberFormDTO memberFormDTO, PasswordEncoder passwordEncoder) {
 //        return MemberEntity.builder()
 //                .name(memberFormDTO.getName())

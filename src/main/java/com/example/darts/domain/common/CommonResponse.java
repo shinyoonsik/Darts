@@ -6,14 +6,14 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class CommonResponseBody {
+public class CommonResponse {
     private String code;
     private String message;
     private Object data;
     private String description;
 
     @Builder
-    public CommonResponseBody(String code, String message, Object data, String description) {
+    public CommonResponse(String code, String message, Object data, String description) {
         this.code = code;
         this.message = message;
         this.data = data;

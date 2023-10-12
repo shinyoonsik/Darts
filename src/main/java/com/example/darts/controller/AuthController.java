@@ -20,16 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
     private final AuthService authService;
 
-    @Deprecated
-    @PostMapping("/deprecated/login")
-    public ResponseEntity<MemberFormDTO> authenticateMember(@RequestBody MemberFormDTO memberFormDTO) {
-        MemberFormDTO result = authService.authenticateMember(memberFormDTO);
-
-        log.info("{}로 로그인 성공", memberFormDTO.getEmail());
-
-        return ResponseEntity.ok(authService.authenticateMember(result));
-    }
-
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> authenticateMember(@RequestBody AuthRequest authRequest) {
         MemberEntity memberEntity = MemberEntity.builder()

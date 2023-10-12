@@ -39,3 +39,5 @@ docker build --build-arg JAR_FILE=build/libs/darts-0.0.1-SNAPSHOT.jar -t myorg/m
 ``
 docker run -p 8080:8080 myorg/myapp
 ``
+# TODO
+  - 로그인, 로그아웃 Vue로 UI구성해서 제대로 테스트 하기 

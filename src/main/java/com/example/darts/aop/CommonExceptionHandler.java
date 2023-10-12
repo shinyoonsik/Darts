@@ -1,6 +1,6 @@
 package com.example.darts.aop;
 
-import com.example.darts.domain.common.CommonResponseBody;
+import com.example.darts.domain.common.CommonResponse;
 import com.example.darts.domain.exception.CustomException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -11,8 +11,8 @@ public class CommonExceptionHandler {
 
     // 잡고싶은 exception을 적어주면 된다.
     @ExceptionHandler({Exception.class, RuntimeException.class})
-    CommonResponseBody catchException(HttpServletRequest request, Exception e){
-        return CommonResponseBody.builder()
+    CommonResponse catchException(HttpServletRequest request, Exception e){
+        return CommonResponse.builder()
                 .code("ER0001")
                 .message(e.getMessage())
                 .data(null)
@@ -22,6 +22,5 @@ public class CommonExceptionHandler {
 
     @ExceptionHandler(CustomException.class)
     void setResponseOfCustomException(){
-
     }
 }
