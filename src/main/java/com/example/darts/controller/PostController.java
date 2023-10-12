@@ -3,10 +3,12 @@ package com.example.darts.controller;
 import com.example.darts.domain.post.dto.PostDTO;
 import com.example.darts.service.PostService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/post")
 @RequiredArgsConstructor
@@ -31,4 +33,19 @@ public class PostController {
         return postId + " 블로그 상세 내용입니다";
     }
 
+    @GetMapping("/test/exception")
+    public void testException() throws Exception {
+        log.info("exception 테스트");
+        throw new Exception("exception 나가신다!");
+    }
+
+    @GetMapping("/test/exception2")
+    public void testException2()  {
+        log.info("exception2 테스트");
+        try {
+            throw new Exception("exception 나가신다!");
+        } catch (Exception e) {
+            throw new RuntimeException("런타임 exception");
+        }
+    }
 }
