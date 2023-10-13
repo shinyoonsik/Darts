@@ -1,7 +1,12 @@
 package com.example.darts.exception;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -48,5 +53,31 @@ class MyCustomExceptionTest {
                 });
 
         assertThat(myCustomException.getCause()).isEqualTo(illegalArgumentException);
+    }
+
+    @Disabled
+    @Test
+    @DisplayName("Checked Exception 테스트")
+    void testCheckedException() throws FileNotFoundException {
+        FileReader fileReader = new FileReader("sample.txt");
+        try {
+            fileReader.read();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }finally {
+            try {
+                fileReader.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        // try-resource는 AutoCloseable인터페이스를 구현한 애들만 사용할 수 있음
+        // 자동으로 close해주므로 finally필요없다
+        try(FileReader fileReader2 = new FileReader("sample.txt")){
+            fileReader2.read();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
