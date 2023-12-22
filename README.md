@@ -17,7 +17,7 @@
 ./gradlew clean build
 ``
 
-# 수동 빌드
+## 수동 빌드
 - gradle wrapper를 사용하여 build  
 `` 
 ./gradlew build
@@ -30,7 +30,7 @@ java -jar darts-0.0.1-SNAPSHOT.jar
 ``
 java -jar darts-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev
 ``
-# Docker 배포
+## Docker 배포
 - docker 빌드 명령어  
 ``
 docker build --build-arg JAR_FILE=build/libs/darts-0.0.1-SNAPSHOT.jar -t myorg/myapp .
@@ -39,5 +39,5 @@ docker build --build-arg JAR_FILE=build/libs/darts-0.0.1-SNAPSHOT.jar -t myorg/m
 ``
 docker run -p 8080:8080 myorg/myapp
 ``
-# TODO
+## TODO
   - 로그인, 로그아웃 Vue로 UI구성해서 제대로 테스트 하기 
